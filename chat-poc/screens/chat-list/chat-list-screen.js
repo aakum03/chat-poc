@@ -54,6 +54,7 @@ export function ChatListScreen({ navigation, route }) {
 
   useEffect(() => {
     getToken(username)
+    .then(console.log("DEBUG: getToken called"))
       .then((token) => TwilioService.getInstance().getChatClient(token))
       .then(() => TwilioService.getInstance().addTokenListener(getToken))
       .then(setChannelEvents)
